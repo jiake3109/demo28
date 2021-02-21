@@ -6,11 +6,13 @@
   <style type="text/css">
     #top {background-color: rgba(220, 220, 220, .5); height:60px; width:100%; box-sizing:border-box; position:fixed; top:0; vertical-align: top;}
     .title{display:flex; justify-content: space-between; padding-top: 10px; padding-left: 30px;font-family: "New Century Schoolbook"; font-size: 30px;}
-    #content{position: relative; display: block; text-align: center;top:60px; height: 699px; width:1240px;background-image: url("ecommercechina.jpg"); margin-left: auto; margin-right: auto; background-repeat: no-repeat; opacity: 0.5;}
+    #content{position: relative; display: block; text-align: center;top:60px; height:100%; width:100%; max-height: 699px; max-width: 1240px;background-image: url("ecommercechina.jpg"); margin-left: auto; margin-right: auto; background-repeat: no-repeat; opacity: 0.7;}
+    #form{position:relative;, display:block; text-align: center; font-size: 25px;}
+
     #footer{width:100%; background-color: #2B2D2F; height: 50px; position:fixed; bottom:0;}
-    h3{font-family: "New Century Schoolbook"; font-size: 50px; vertical-align: middle;}
+    h3{font-family: "New Century Schoolbook"; font-size: 50px; vertical-align: middle; color:black;}
     img{width:100%; max-width:500px;}
-    p{font-family: century-gothic, sans-serif; font-size: 20px;}
+    p{font-family: century-gothic, sans-serif; font-size: 20px; color:black;}
     p.footer{font-family: "Valera Round", lato; font-size: 20px; color:grey;}
     a{text-decoration: none; font-family: century-gothic, sans-serif; font-size: 20px;}
 
@@ -30,10 +32,22 @@
     </div>
 
     <div id='content'>
-      <h3> CHINA E-COMMERCE EXPERT</h3>
-
+      <br><br><br><br><br><br><br><br><br><br>
+      <h3><span style='color: Black'>CHINA E-COMMERCE EXPERT</span></h3>
+      <p><strong>Please leave your contact below, we will be in touch with you shortly.</strong></p>
+      <br><br><br><br><br><br><br><br><br><br>
     </div>
-
+    <br><br><br><br><br><br>
+    <div id='form'>
+      <form action='#' method='post'>
+    	<label>Name<span style='color: Red'>*</span>:</label> <input type="text" name='name' id='the_name' required='1'><br />
+    	<br />
+      <label>Email<span style='color: Red'>*</span>:</label> <input type="text" name='email' id='the_email' required='1'><br />
+    	<br />
+      <label>Message<span style='color: Red'>*</span>:</label><textarea rows='5' cols='40'> </textarea>
+      <br/>
+      <input type = "submit" value = "Submit">
+    </div>
     <div id='footer'>
       <p class='footer'>@eTOC 2021 all rights reserved</p>
     </div>
