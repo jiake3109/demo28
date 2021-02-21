@@ -1,0 +1,11 @@
+#top {background-color: rgba(220, 220, 220, .5); height:60px; width:100%; box-sizing:border-box; position:fixed; top:0;}
+.title{display:flex; justify-content: space-between; overflow: scroll;padding-top: 10px; padding-left: 30px;font-family: "New Century Schoolbook"; font-size: 30px;}
+#content{display:inline-block; position: relative; box-sizing: border-box; height:200px; top:60px;}
+.left_pic{width: 32%; display:inline-block; height:400px; padding-left: 60px; text-align: center;}
+.right_text{width: 55%; display:inline-block; height:400px; position: relative; text-align: center;}
+#footer{width:100%; background-color: #2B2D2F; height: 50px; position:fixed; bottom:0;}
+a{text-decoration: none; font-family: century-gothic, sans-serif; font-size: 20px;}
+p.footer{font-family: "Valera Round", lato; font-size: 20px; color:grey;}
+img{width:100%; max-width:350px; height:100%; max-height:300px; }
+h3{font-family: "New Century Schoolbook"; font-size: 30px}
+p{font-family: century-gothic, sans-serif; font-size: 20px; text-align: left; color:grey;}
