@@ -1,0 +1,5 @@
+heading,artists,title,genre,published_year{ display:block;}
+heading{background-color: powderblue; font-family: "New Century Schoolbook"; font-size: 50px; color: Green; text-align: center;}
+title{background-color: gray; font-family: "New Century Schoolbook"; font-size: 30px; color:yellow;}
+artists,genre,published_year{background-color: gray; font-family: century-gothic, sans-serif; text-decoration: underline;font-size: 25px; color:white;}
+br{content:"\a";}

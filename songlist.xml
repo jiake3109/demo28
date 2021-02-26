@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="songlist.css"?>
+<songlist>
+  <heading>Welcome to Jack's song list!</heading>
+
+  <record>
+    <title>Song name: What makes you beautiful</title>
+    <artists>Author: One Direction</artists>
+    <genre>Genre: Pop music</genre>
+    <published_year>Published in: 2011</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Fly me to the moon</title>
+    <artists>Author: Frank Sinatra</artists>
+    <genre>Genre: Jazz</genre>
+    <published_year>Published in: 1954</published_year>
+  </record>
+
+  <record>
+    <title>Song name: What A Wonderful World</title>
+    <artists>Author: Louis Armstrong</artists>
+    <genre>Genre: Jazz</genre>
+    <published_year>Published in: 1967</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Georgia On My Mind</title>
+    <artists>Author: Ray Charles</artists>
+    <genre>Genre: Jazz</genre>
+    <published_year>Published in: 1960</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Watermelon Sugar</title>
+    <artists>Author: Harry Styles</artists>
+    <genre>Genre: Pop music</genre>
+    <published_year>Published in: 2019</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Just the way you are</title>
+    <artists>Author: Bruno Mars</artists>
+    <genre>Genre: Pop music</genre>
+    <published_year>Published in: 2010</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Someone you loved</title>
+    <artists>Author: Lewis Calpaldi</artists>
+    <genre>Genre: Pop music</genre>
+    <published_year>Published in: 2019</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Stairway to heaven</title>
+    <artists>Author: Led Zeppelin</artists>
+    <genre>Genre: Rock music</genre>
+    <published_year>Published in: 1971</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Don't stop believin'</title>
+    <artists>Author: Journey</artists>
+    <genre>Genre: Rock music</genre>
+    <published_year>Published in: 1981</published_year>
+  </record>
+
+  <record>
+    <title>Song name: Highway to hell</title>
+    <artists>Author: AC/DC</artists>
+    <genre>Genre: Rock music</genre>
+    <published_year>Published in: 1979</published_year>
+  </record>
+
+
+</songlist>
