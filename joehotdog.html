@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name=‘viewport’ content=“width=device-width, initial-scale=1”>
+  <title>Joe's Hotdog Stand</title>
+  <style type="text/css">
+    .tableData {
+        float: left;
+    }
+  </style>
+</head>
+<body>
+  <script language="javascript">
+  var quantity = [];
+  quantity[0] = parseInt(prompt("How many hotdogs do you want?"));
+  quantity[1] = parseInt(prompt("How many fries do you want?"));
+  quantity[2] = parseInt(prompt("How many sodas do you want?"));
+  var subtotal = quantity[0] * 3.25 + quantity[1] * 2 + quantity[2] * 1.5;
+  var discount_check = 0;
+  if (subtotal >= 20)
+  {
+      discount_check = 1;
+      var discount = subtotal * 0.1;
+  }
+  var tax = subtotal * 0.0625;
+  var total = tax + subtotal;
+
+  document.write("<table class='tableData'>");
+  document.write('<tr><th>Here is your order summary</th><th>');
+  document.write('<tr><td>Items ordered: </td></tr>');
+  document.write('<tr><td>Quantities for each goods: </td></tr>');
+  document.write('<tr><td>Subtotal: </td></tr>');
+  document.write('<tr><td>Discounts if applicable: </td></tr>');
+  document.write('<tr><td>Tax: </td></tr>');
+  document.write('<tr><td>Total: </td></tr>');
+  document.write('</table>');
+
+  document.write("<table class='tableData'>");
+  document.write('<tr><th>&nbsp</th></tr>');
+  document.write('<tr><td>');
+  if (quantity[0] != 0)   document.write('hotdogs;&nbsp&nbsp&nbsp');
+  if (quantity[1] != 0)   document.write('fries;&nbsp&nbsp&nbsp');
+  if (quantity[2] != 0)   document.write('sodas&nbsp&nbsp');
+  if (quantity[0] == 0 && quantity[1] == 0 && quantity[2] == 0) document.write('None')
+  document.write('</td></tr>');
+  document.write('<tr><td>')
+  if (quantity[0] != 0)   document.write(quantity[0] + ';&nbsp&nbsp&nbsp&nbsp');
+  if (quantity[1] != 0)   document.write(quantity[1] + ';&nbsp&nbsp&nbsp&nbsp');
+  if (quantity[2] != 0)   document.write(quantity[2]);
+  if (quantity[0] == 0 && quantity[1] == 0 && quantity[2] == 0) document.write('None')
+  document.write('</td></tr>');
+  document.write('<tr><td>$' + subtotal.toFixed(2) + '</td></tr>');
+  document.write('<tr><td>$');
+  if (discount_check)    document.write(discount.toFixed(2));
+  else document.write('0');
+  document.write('</td></tr>');
+  document.write('<tr><td>$' + tax.toFixed(2) + '</td></tr>');
+  document.write('<tr><td>$' + total.toFixed(2) + '</td></tr>');
+  document.write('</table>');
+
+  </script>
+</body>
+</html>
