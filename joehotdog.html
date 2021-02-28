@@ -16,6 +16,9 @@
   quantity[0] = parseInt(prompt("How many hotdogs do you want?"));
   quantity[1] = parseInt(prompt("How many fries do you want?"));
   quantity[2] = parseInt(prompt("How many sodas do you want?"));
+  if (quantity[0] <= 0)   quantity[0] = 0;
+  if (quantity[1] <= 0)   quantity[1] = 0;
+  if (quantity[2] <= 0)   quantity[2] = 0;
   var subtotal = quantity[0] * 3.25 + quantity[1] * 2 + quantity[2] * 1.5;
   var discount_check = 0;
   if (subtotal >= 20)
