@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name=‘viewport’ content=“width=device-width, initial-scale=1”>
+  <title>Amicable Numbers Checker</title>
+  <style type="text/css">
+    div {font-size: 20px; font-weight: bold;}
+  </style>
+</head>
+<body>
+  <script language="javascript">
+    function isAFactor(numerator, denominator){
+      if ( numerator % denominator === 0) return true;
+      else return false;
+    }
+    function getFac_sum(value, array){
+      var counter = 2;
+      var sum = 1;
+      array.push(1);
+      while (counter < value){
+        if (isAFactor(value, counter)) {
+          sum += counter;
+          array.push(counter);
+        }
+        counter++;
+      }
+      return sum;
+    }
+    function checknum(){
+      var num1 = document.getElementById('n1').value;
+      var num2 = document.getElementById('n2').value;
+      var factor1 = [], factor2 = [];
+      var sum1 = getFac_sum(num1, factor1);
+      var sum2 = getFac_sum(num2, factor2);
+      if (sum1 == num2 && sum2 == num1){
+        document.getElementById('output').innerHTML = "The numbers: " + num1 +
+                                " and " + num2 + " are amicable.";
+      }else{
+        document.getElementById('output').innerHTML = "The numbers: " + num1 +
+                                " and " + num2 + " are not amicable.";
+      }
+      alert("The sum of factors of " + num1 + " is: " + factor1.join(' ') +
+            ".\nThe sum of factors of "+ num2 + " is: " + factor2.join(' ') + ".");
+    }
+  </script>
+
+  <form>
+    number1 <input type="number" id="n1"></br>
+    number2 <input type="number" id="n2"></br>
+    <input type="button" value="check" name="btn1" onclick="checknum()">
+  </form>
+  </br>
+  <div id="output"></div>
+</body>
+</html>
