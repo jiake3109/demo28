@@ -40,7 +40,7 @@ function makeSelect(name, minRange, maxRange)
 </script>
 
 <h1>Jade Delight</h1>
-<form name="order" onsubmit= "return validate()">
+<form name="order">
 
 <p>First Name: <input type="text"  name='fname' /></p>
 <p>Last Name*:  <input type="text"  name='lname' />
@@ -87,7 +87,7 @@ function makeSelect(name, minRange, maxRange)
 <p>Total: $ <input type="text"  name='total' id="total" />
 </p>
 
-<input type = "submit" value = "Submit Order"/>
+<input type = "button" value = "Submit Order" onclick="validate()"/>
 <script language ="javascript">
 	var e = document.getElementsByTagName("select");
 	var output = document.getElementsByName("cost");
