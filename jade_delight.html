@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jade Delight</title>
+<style type="text/css">
+	.errMsg {color: #D20E11; border: solid 1px #d20e11; display:none;  padding: 1px 15px;	}
+
+</style>
+
+</head>
+
+<body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script language="javascript">
+
+function MenuItem(name, cost)
+{
+	this.name = name;
+	this.cost=cost;
+}
+
+menuItems = new Array(
+	new MenuItem("Chicken Chop Suey", 4.5),
+	new MenuItem("Sweet and Sour Pork", 6.25),
+	new MenuItem("Shrimp Lo Mein", 5.25),
+	new MenuItem("Moo Shi Chicken", 6.5),
+	new MenuItem("Fried Rice", 2.35)
+);
+
+function makeSelect(name, minRange, maxRange)
+{
+	var t= "";
+	t = "<select name='" + name + "' size='1'>";
+	for (j=minRange; j<=maxRange; j++)
+	   t += "<option>" + j + "</option>";
+	t+= "</select>";
+	return t;
+}
+</script>
+
+<h1>Jade Delight</h1>
+<form name="order" onsubmit= "return validate()">
+
+<p>First Name: <input type="text"  name='fname' /></p>
+<p>Last Name*:  <input type="text"  name='lname' />
+	<div id="errName" class="errMsg">Last Name is required.</div></p>
+<p>Street: <input type="text"  name='street' />
+	<div id="errStreet" class="errMsg">Street is required.</div></p>
+<p>City: <input type="text"  name='city' />
+	<div id="errCity" class="errMsg">City is required.</div></p>
+<p>Phone*: <input type="text"  name='phone' />
+	<div id="noPhone" class="errMsg">Phone is required.</div>
+	<div id="errPhone" class="errMsg">Phone entered is not valid.</div></p>
+<p>
+	<input type="radio"  name="p_or_d" value = "pickup" checked="checked"/>Pickup
+	<input type="radio"  name='p_or_d' value = 'delivery'/>Delivery
+</p>
+<table id="costTable" border="0" cellpadding="3">
+  <tr>
+    <th>Select Item</th>
+    <th>Item Name</th>
+    <th>Cost Each</th>
+    <th>Total Cost</th>
+  </tr>
+<script language="javascript">
+
+  var s = "";
+  for (i=0; i< menuItems.length; i++)
+  {
+	  s += "<tr><td>";
+	  s += makeSelect("quan" + i, 0, 10);
+	  s += "</td><td>" + menuItems[i].name + "</td>";
+	  s += "<td> $ " + menuItems[i].cost.toFixed(2) + "</td>";
+	  s += "<td>$<input type='text' name='cost'/></td></tr>";
+  }
+  document.writeln(s);
+</script>
+</table>
+<div id="noItem" class="errMsg">At least one item is required.</div>
+<p>Subtotal:
+   $<input type="text"  name='subtotal' id="subtotal" />
+</p>
+<p>Mass tax 6.25%:
+  $ <input type="text"  name='tax' id="tax" />
+</p>
+<p>Total: $ <input type="text"  name='total' id="total" />
+</p>
+
+<input type = "submit" value = "Submit Order"/>
+<script language ="javascript">
+	var e = document.getElementsByTagName("select");
+	var output = document.getElementsByName("cost");
+	var s1 = document.getElementsByName("subtotal")[0];
+	var s2 = document.getElementsByName("tax")[0];
+	var s3 = document.getElementsByName("total")[0];
+	function updateSub(){
+		var raw_sub = 0;
+		raw_sub = (parseFloat(output[0].value) || 0) +
+							(parseFloat(output[1].value) || 0) +
+							(parseFloat(output[2].value) || 0) +
+							(parseFloat(output[3].value) || 0) +
+							(parseFloat(output[4].value) || 0);
+		s1.value = raw_sub;
+		s2.value = (parseFloat(raw_sub) * 0.0625).toFixed(2);
+		s3.value = (parseFloat(s1.value) + parseFloat(s2.value)).toFixed(2);
+	}
+	e[0].onchange = function(){
+			var value = e[0].options[e[0].selectedIndex].value;
+			output[0].value = (parseInt(value) * menuItems[0].cost.toFixed(2)).toFixed(2);
+			updateSub();
+	}
+	e[1].onchange = function(){
+			var value = e[1].options[e[1].selectedIndex].value;
+			output[1].value = (parseInt(value) * menuItems[1].cost.toFixed(2)).toFixed(2);
+			updateSub();
+	}
+	e[2].onchange = function(){
+			var value = e[2].options[e[2].selectedIndex].value;
+			output[2].value = (parseInt(value) * menuItems[2].cost.toFixed(2)).toFixed(2);
+			updateSub();
+	}
+	e[3].onchange = function(){
+			var value = e[3].options[e[3].selectedIndex].value;
+			output[3].value = (parseInt(value) * menuItems[3].cost.toFixed(2)).toFixed(2);
+			updateSub();
+	}
+	e[4].onchange = function(){
+			var value = e[4].options[e[4].selectedIndex].value;
+			output[4].value = (parseInt(value) * menuItems[4].cost.toFixed(2)).toFixed(2);
+			updateSub();
+	}
+	var radio = document.getElementsByName("p_or_d");
+	window.onload = function(){
+			if (radio[0].checked){
+				document.getElementsByTagName("p")[2].style.display = "none";
+				document.getElementsByTagName("p")[3].style.display = "none";
+			}
+	}
+	radio[0].onchange = function(){
+		document.getElementsByTagName("p")[2].style.display = "none";
+		document.getElementsByTagName("p")[3].style.display = "none";
+	}
+	radio[1].onchange = function(){
+		document.getElementsByTagName("p")[2].style.display = "";
+		document.getElementsByTagName("p")[3].style.display = "";
+	}
+
+	function validate(){
+		err=false;
+		document.getElementById("errName").style.display = "none";
+		document.getElementById("errStreet").style.display = "none";
+		document.getElementById("errCity").style.display = "none";
+		document.getElementById("noPhone").style.display = "none";
+		document.getElementById("errPhone").style.display = "none";
+		document.getElementById("noItem").style.display = "none";
+		with(document.order){
+			if (lname.value == ""){
+				document.getElementById("errName").style.display = "inline-block";
+				lname.focus();
+				err=true;
+			}
+			if (radio[1].checked){
+				if (street.value == ""){
+					document.getElementById("errStreet").style.display = "inline-block";
+					street.focus();
+					err=true;
+				}
+				if (city.value == ""){
+					document.getElementById("errCity").style.display = "inline-block";
+					city.focus();
+					err=true;
+				}
+			}
+			if (phone.value == ""){
+				document.getElementById("noPhone").style.display = "inline-block";
+				phone.focus();
+				err=true;
+			}else{
+				const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+				if (regex.test(document.order.phone.value)){
+				}else{
+					document.getElementById("errPhone").style.display = "inline-block";
+					phone.focus();
+					err=true;
+				}
+			}
+		}
+		if (document.getElementsByName("subtotal")[0].value == ""){
+				document.getElementById("noItem").style.display = "inline-block";
+				err=true;
+		}
+		if (err == false){
+			var Order = window.open("","_blank","width=300,height=300,scrollbars=1,resizable=1");
+			months=["Jan", "Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+			var order = "<p>You ordered " + makeOrder();
+			d = new Date();
+			d.setMinutes(d.getMinutes() + (radio[0].checked ? 15:30));
+			month = months[d.getMonth()];
+			var extime = "<p>Your expected " + (radio[0].checked ? "pickup" : "delivery")
+			+  " time is " + d.getHours() + ":" +
+			(d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes()) + " " + month +
+			 " " + d.getDate() + " " + d.getFullYear() + "</p>";
+			var detail = "<p>The total amount of your order is $" + s3.value + "</p>";
+			Order.document.write("<h2>Thank you for placing your order with us!</h2>")
+			Order.document.write(order + extime + detail);
+			Order.document.close();
+		}
+		return !err;
+	}
+
+	function makeOrder(){
+		var t = "";
+		if (parseInt(output[0].value) > 0){
+				t += e[0].options[e[0].selectedIndex].value;
+				t += " " + menuItems[0].name;
+		}
+		if (parseInt(output[1].value) > 0){
+				t += ", " + e[1].options[e[1].selectedIndex].value;
+				t += " " + menuItems[1].name;
+		}
+		if (parseInt(output[2].value) > 0){
+				t += ", " + e[2].options[e[2].selectedIndex].value;
+				t += " " + menuItems[2].name;
+		}
+		if (parseInt(output[3].value) > 0){
+				t += ", " + e[3].options[e[3].selectedIndex].value;
+				t += " " + menuItems[3].name;
+		}
+		if (parseInt(output[4].value) > 0){
+				t += ", " + e[4].options[e[4].selectedIndex].value;
+				t += " " + menuItems[4].name;
+		}
+		t += ".</p>";
+		return t;
+	}
+</script>
+
+</form>
+</body>
+</html>
