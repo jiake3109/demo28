@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name=‘viewport’ content=“width=device-width, initial-scale=1”>
+  <title>Joe's Hotdog Stand</title>
+  <style type="text/css">
+    .tableData {float: left;}
+    .errMsg {color: #D20E11; border: solid 1px #d20e11; display:none;  padding: 1px 15px;	}
+
+
+  </style>
+</head>
+<body>
+  <script language="javascript">
+  function MenuItem(name, cost)
+  {
+  	this.name = name;
+  	this.cost=cost;
+  }
+
+  menuItems = new Array(
+  	new MenuItem("Hotdog", 3.25),
+  	new MenuItem("Fries", 2),
+  	new MenuItem("Soda", 1.5),
+  );
+
+  function makeSelect(id)
+  {
+  	var t= "";
+  	t = "<select id='" + name + "' size='1'>";
+    for (j=0; j<=5; j++){
+      t += "<option>" + j + "</option>";
+    }
+    for (j=10; j<=20; j += 5){
+      t += "<option>" + j + "</option>";
+    }
+  	t+= "</select>";
+  	return t;
+  }
+
+  </script>
+  <h1>Welcome to Joe's Hotdogs</h1>
+  <h2>Please place your order here. (* means required infomation)</h2>
+  <form name="order">
+  <p>First Name: <input type="text"  name='fname' /></p>
+  <p>Last Name*:  <input type="text"  name='lname' />
+  	<div id="errName" class="errMsg">Last Name is required.</div></p>
+  <p>Street*: <input type="text"  name='street' />
+  	<div id="errStreet" class="errMsg">Street is required.</div></p>
+  <p>City*: <input type="text"  name='city' />
+  	<div id="errCity" class="errMsg">City is required.</div></p>
+  <p>Phone*: <input type="text"  name='phone' />
+  	<div id="noPhone" class="errMsg">Phone is required.</div>
+  	<div id="errPhone" class="errMsg">Phone entered is not valid.</div></p>
+  <table id="costTable" border="0" cellpadding="3">
+    <tr>
+      <th>Select Item</th>
+      <th>Item Name</th>
+      <th>Cost Each</th>
+      <th>Total Cost</th>
+    </tr>
+  <script language="javascript">
+    var s = "";
+    for (i=0; i< menuItems.length; i++)
+    {
+  	  s += "<tr><td>";
+  	  s += makeSelect("item" + i);
+  	  s += "</td><td>" + menuItems[i].name + "</td>";
+  	  s += "<td> $ " + menuItems[i].cost.toFixed(2) + "</td>";
+  	  s += "<td>$<input type='text' name='cost'/></td></tr>";
+    }
+    document.writeln(s);
+  </script>
+
+  </table>
+<div id="noItem" class="errMsg">At least one item should be ordered.</div>
+<p>Subtotal:
+   $<input type="text"  name='subtotal' id="subtotal" />
+</p>
+<p>Mass tax 6.25%:
+  $<input type="text"  name='tax' id="tax" />
+</p>
+<p>Total: $<input type="text"  name='total' id="total" />
+</p>
+
+<input type = "button" value = "Submit Order" onclick="validate()"/>
+
+<script language="javascript">
+  var e = document.getElementsByTagName("select");
+  var output = document.getElementsByName("cost");
+  var s1 = document.getElementsByName("subtotal")[0];
+  var s2 = document.getElementsByName("tax")[0];
+  var s3 = document.getElementsByName("total")[0];
+  function updateSub(){
+    var raw_sub = 0;
+    raw_sub = (parseFloat(output[0].value) || 0) +
+              (parseFloat(output[1].value) || 0) +
+              (parseFloat(output[2].value) || 0);
+    s1.value = raw_sub;
+    s2.value = (parseFloat(raw_sub) * 0.0625).toFixed(2);
+    s3.value = (parseFloat(s1.value) + parseFloat(s2.value)).toFixed(2);
+  }
+  e[0].onchange = function(){
+      var value = e[0].options[e[0].selectedIndex].value;
+      output[0].value = (parseInt(value) * menuItems[0].cost.toFixed(2)).toFixed(2);
+      updateSub();
+  }
+  e[1].onchange = function(){
+      var value = e[1].options[e[1].selectedIndex].value;
+      output[1].value = (parseInt(value) * menuItems[1].cost.toFixed(2)).toFixed(2);
+      updateSub();
+  }
+  e[2].onchange = function(){
+      var value = e[2].options[e[2].selectedIndex].value;
+      output[2].value = (parseInt(value) * menuItems[2].cost.toFixed(2)).toFixed(2);
+      updateSub();
+  }
+  function validate()
+  {
+		var err=false;
+		document.getElementById("errName").style.display = "none";
+		document.getElementById("errStreet").style.display = "none";
+		document.getElementById("errCity").style.display = "none";
+		document.getElementById("noPhone").style.display = "none";
+		document.getElementById("errPhone").style.display = "none";
+		document.getElementById("noItem").style.display = "none";
+		with(document.order){
+			if (lname.value == ""){
+				document.getElementById("errName").style.display = "inline-block";
+				lname.focus();
+				err=true;
+			}
+			if (street.value == ""){
+					document.getElementById("errStreet").style.display = "inline-block";
+					street.focus();
+					err=true;
+			}
+			if (city.value == ""){
+					document.getElementById("errCity").style.display = "inline-block";
+					city.focus();
+					err=true;
+				}
+			if (phone.value == ""){
+				document.getElementById("noPhone").style.display = "inline-block";
+				phone.focus();
+				err=true;
+			}else{
+				const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+				if (regex.test(document.order.phone.value)){
+				}else{
+					document.getElementById("errPhone").style.display = "inline-block";
+					phone.focus();
+					err=true;
+				}
+			}
+		}
+		if (document.getElementsByName("subtotal")[0].value == ""){
+				document.getElementById("noItem").style.display = "inline-block";
+				err=true;
+		}
+		if (err == false){
+			var Order = window.open("","_blank","width=300,height=300,scrollbars=1,resizable=1");
+			var order = "<p>You ordered " + makeOrder();
+			var detail = "<p>The total amount of your order is $" + s3.value + "</p>";
+			Order.document.write("<h2>Thank you for placing your order with us!</h2>")
+			Order.document.write(order + detail);
+			Order.document.close();
+		}
+		return !err;
+	}
+
+  function makeOrder(){
+    var t = "";
+    if (parseInt(output[0].value) > 0){
+        t += e[0].options[e[0].selectedIndex].value;
+        t += " " + menuItems[0].name;
+    }
+    if (parseInt(output[1].value) > 0){
+        t += "  " + e[1].options[e[1].selectedIndex].value;
+        t += " " + menuItems[1].name;
+    }
+    if (parseInt(output[2].value) > 0){
+        t += "  " + e[2].options[e[2].selectedIndex].value;
+        t += " " + menuItems[2].name;
+    }
+    t += ".</p>";
+    return t;
+  }
+
+</script>
+
+</form>
+</body>
+</html>
