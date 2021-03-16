@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jumpbox</title>
+</head>
+
+<body>
+  <label id = "txt">Check All</label>
+  <input type="checkbox" id="sum" onclick="check();"/>
+  <input type="checkbox" id="box1" value="first" onclick="toggle1();"/>
+  <input type="checkbox" id="box2" value="second" onclick="toggle2();"/>
+  <input type="checkbox" id="box3" value="third" onclick="toggle3();"/>
+  <input type="checkbox" id="box4" value="fourth" onclick="toggle4();"/>
+
+
+</body>
+<script language="javascript">
+  var c = document.getElementsByTagName("input");
+  function check(){
+      if (c[0].checked == true){
+          c[1].checked = true;
+          c[2].checked = true;
+          c[3].checked = true;
+          c[4].checked = true;
+          document.getElementById("txt").innerHTML = "UnCheck All";
+      }else{
+          c[1].checked = false;
+          c[2].checked = false;
+          c[3].checked = false;
+          c[4].checked = false;
+          document.getElementById("txt").innerHTML = "Check All";
+      }
+  }
+  function toggle1(){
+      var ck = document.getElementById("box1");
+      if (ck.checked){
+          ck.checked = false;
+      }else{
+          ck.checked = true;
+      }
+  }
+  function toggle2(){
+      var ck = document.getElementById("box2");
+      if (ck.checked){
+          ck.checked = false;
+      }else{
+          ck.checked = true;
+      }
+  }
+  function toggle3(){
+      var ck = document.getElementById("box3");
+      if (ck.checked){
+          ck.checked = false;
+      }else{
+          ck.checked = true;
+      }
+  }
+  function toggle4(){
+      var ck = document.getElementById("box4");
+      if (ck.checked){
+          ck.checked = false;
+      }else{
+          ck.checked = true;
+      }
+  }
+
+</script>
+</html>
