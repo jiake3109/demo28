@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jumpbox</title>
+</head>
+
+<body>
+  <input type="text" name="box1" value="abc" readonly/>
+  <input type="button" name ="but" value="JUMP>" onclick="jump()"/>
+  <input type="text" name="box2" value="" readonly/>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    $("#but").click(function(){
+      $("#box1").val('');
+      $("#box2").val('abc');
+      $("#but").val('<JUMP');
+    });
+  </script> -->
+
+</body>
+<script language="javascript">
+  var b1 = document.getElementsByName("box1")[0];
+  var b2 = document.getElementsByName("box2")[0];
+  var but = document.getElementsByName("but")[0];
+  function jump(){
+    var txt = "abc";
+    var none = "";
+    var rightjump = "JUMP>";
+    var leftjump = "<JUMP";
+    if (but.value == rightjump){
+        b1.value = none;
+        b2.value = txt;
+        but.value = leftjump;
+        jump_right_check = false;
+    }else{
+        b1.value = txt;
+        b2.value = none;
+        but.value = rightjump;
+    }
+  }
+</script>
+
+</html>
