@@ -10,7 +10,7 @@
 <body>
 	<script language="javascript">
 	$(document).ready(function(){
-		$.getJSON('https://github.com/jiake3109/demo28/songlist.json', function(data){
+		$.get('https://github.com/jiake3109/demo28/songlist.json', function(data){
 			str = JSON.stringify(data);
 			document.write(str +"<br/>");
 
