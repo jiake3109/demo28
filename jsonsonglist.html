@@ -9,11 +9,13 @@
 
 <body>
 	<script language="javascript">
+	$(document).ready(function(){
 		$.get("songlist.json", function(data){
 			str = JSON.stringify(data);
 			document.write(str +"<br/>");
 
 		});
+	})
 
 </script>
 </body>
