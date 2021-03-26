@@ -1,0 +1,62 @@
+[
+  {
+    "title":"What makes you beautiful",
+    "author":"One Direction",
+    "genre":["Pop music"],
+    "published_year":2011,
+  },
+  {
+    "title":"Fly me to the moon",
+    "author":"Frank Sinatra",
+    "genre":["Jazz"],
+    "published_year":1954,
+  },
+  {
+    "title":"What A Wonderful World",
+    "author":"Louis Armstrong",
+    "genre":["Jazz"],
+    "published_year":1967,
+  },
+  {
+    "title":"Georgia On My Mind",
+    "author":"Ray Charles",
+    "genre":["Jazz"],
+    "published_year":1960,
+  },
+  {
+    "title":"Watermelon Sugar",
+    "author":"Harry Styles",
+    "genre":["Pop music"],
+    "published_year":2019,
+  },
+  {
+    "title":"Just the way you are",
+    "author":"Harry Styles",
+    "genre":["Pop music"],
+    "published_year":2019,
+  },
+  {
+    "title":"Watermelon Sugar",
+    "author":"Bruno Mars",
+    "genre":["Pop music"],
+    "published_year":2010,
+  },
+  {
+    "title":"Someone you loved",
+    "author":"Lewis Calpaldi",
+    "genre":["Pop music"],
+    "published_year":2019,
+  },
+  {
+    "title":"Stairway to heaven",
+    "author":"Led Zeppelin",
+    "genre":["Rock music"],
+    "published_year":1971,
+  },
+  {
+    "title":"Don't stop believin'",
+    "author":"Journey",
+    "genre":["Rock music"],
+    "published_year":1981,
+  }
+]
