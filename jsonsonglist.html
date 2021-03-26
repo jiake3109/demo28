@@ -3,19 +3,17 @@
 <head>
 <meta charset="utf-8">
 <title>JSON songlist</title>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 	<script language="javascript">
-	$(document).ready(function(){
-		$.get('https://github.com/jiake3109/demo28/songlist.json', function(data){
+		$.get("https://github.com/jiake3109/demo28/songlist.json", function(data){
 			str = JSON.stringify(data);
 			document.write(str +"<br/>");
 
 		});
-	})
 
 </script>
 </body>
