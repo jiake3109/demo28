@@ -12,6 +12,16 @@
 
 <body>
 	<script language="javascript">
+		function getsong(){
+			option = document.getElementbyId("genre");
+			value = option.options[option.selectedIndex].value;
+			document.writeln("The value you chose was");
+// 			data.forEach(function(song) {
+// 			     if (song.genre == value){
+// 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
+// 			     }
+// 			})
+		}
 		$.getJSON("https://jiake3109.github.io/demo28/songlist.json", function(data){
 			strHTML="";
 			counter = 1;
@@ -34,16 +44,6 @@
 		form +="<form> <select id = 'genre' size = '1'> <option>Pop Music</option>";
 		form +="<option>Jazz</option><option>Rock Music</option></select><input type='submit' onclick = 'getsong()' /></form><div id ='output'>&nbsp;</div>";
 		document.writeln(form);
-			function getsong(){
-// 			option = document.getElementbyId("genre");
-// 			value = option.options[option.selectedIndex].value;
-			document.writeln("The value you chose was");
-// 			data.forEach(function(song) {
-// 			     if (song.genre == value){
-// 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
-// 			     }
-// 			})
-			}
 		});
 		
 </script>
