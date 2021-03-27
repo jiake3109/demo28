@@ -14,18 +14,25 @@
 	<script language="javascript">
 	$(document).ready(function(){
 		$.getJSON("https://jiake3109.github.io/demo28/songlist.json", function(data){
-			str = JSON.stringify(data);
-			document.write(str +"<br/>");
-			strHTML= "<ul>";
+// 			str = JSON.stringify(data);
+// 			document.write(str +"<br/>");
+			strHTML="";
 			counter = 1;
 			data.forEach(function(song) {
-					strHTML += "<li>" + counter + ".&nbsp;Title: " + song.title + ",&nbsp;Author: "
+					strHTML += counter + ".&nbsp;Title: " + song.title + ",&nbsp;Author: "
 					+ song.author + ",&nbsp;Genre: " + song.genre + ",&nbsp;Published_year: " +
-					song.published_year + ";</li>";
+					song.published_year + ";<\br>";
 					counter++;
 			})
-		strHTML += "</ul>";
-		document.write(strHTML); 
+			document.write(strHTML + "</br>"); 
+			strHTML="";
+			data.forEach(function(song) {
+					strHTML += song.title + "<\br>Artist: "
+					+ song.author + "</br>Genre: " + song.genre + "Released" +
+					song.published_year + "<\br>";
+			})
+			document.write(strHTML + "</br>"); 
+		
 		});
 	})
 
