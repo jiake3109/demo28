@@ -14,8 +14,12 @@
 			str = JSON.stringify(data);
 			document.write(str +"<br/>");
 			strHTML= "<ul>";
+			counter = 1;
 			data.forEach(function(song) {
-					strHTML += "<li>" + song + "</li>";
+					strHTML += "<li>" + counter + ". title: " + song.title + ", author: "
+					+ song.author + ", genre: " + song.genre + ", published_year: " +
+					song.published_year + ";</li>";
+					counter++;
 			})
 		strHTML += "</ul>";
 		document.write(strHTML); 
