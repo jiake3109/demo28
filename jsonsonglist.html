@@ -28,19 +28,13 @@
 					+ song.author + "<br>Genre: " + song.genre + "<br>Released &nbsp;" +
 					song.published_year + "<br><br>";
 			})
-			document.writeln(strHTML + "<br>"); 
-		
+			document.writeln(strHTML); 
 		});
+		form = "<br>";
+		form +="<h2>Please pick your favorite genre with the following form</h2>";
+		form +="<form> <select size = '1'> <option>Pop Music</option>";
+		form +="<option>Jazz</option><option>Rock Music</option></select><input type='submit' onclick = 'getsong()'></form>";
+		document.writeln(form);
 </script>
-	<h2> Please pick your favorite genre with the following form </h2>
-	<form>
-		<select size = '1'>
-			<option>Pop Music</option>
-			<option>Jazz</option>
-			<option>Rock Music</option>
-		</select>
-		<input type="submit" onclick = "getsong()">
-		
-	</form>
 </body>
 </html>
