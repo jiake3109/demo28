@@ -34,7 +34,6 @@
 		form +="<form id = 'form1'> <select id = 'genre' size = '1'> <option>Pop Music</option>";
 		form +="<option>Jazz</option><option>Rock Music</option></select><input type='submit'/></form><div id ='output'>&nbsp;</div>";
 		document.writeln(form);
-		});
 		$("#form1").submit(function(){
 			option = document.getElementbyId("genre");
 			value = option.options[option.selectedIndex].value;
@@ -45,6 +44,8 @@
 // 			     }
 // 			})
 		});
+		});
+		
 		
 </script>
 </body>
