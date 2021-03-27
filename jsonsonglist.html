@@ -12,16 +12,6 @@
 
 <body>
 	<script language="javascript">
-		function getsong(){
-			option = document.getElementbyId("genre");
-			value = option.options[option.selectedIndex].value;
-			document.writeln("The value you chose was");
-// 			data.forEach(function(song) {
-// 			     if (song.genre == value){
-// 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
-// 			     }
-// 			})
-		}
 		$.getJSON("https://jiake3109.github.io/demo28/songlist.json", function(data){
 			strHTML="";
 			counter = 1;
@@ -41,9 +31,19 @@
 			document.writeln(strHTML); 
 		form = "<br>";
 		form +="<h2>Please pick your favorite genre with the following form</h2>";
-		form +="<form> <select id = 'genre' size = '1'> <option>Pop Music</option>";
-		form +="<option>Jazz</option><option>Rock Music</option></select><input type='submit' onclick = 'getsong()' /></form><div id ='output'>&nbsp;</div>";
+		form +="<form id = 'form1'> <select id = 'genre' size = '1'> <option>Pop Music</option>";
+		form +="<option>Jazz</option><option>Rock Music</option></select><input type='submit'/></form><div id ='output'>&nbsp;</div>";
 		document.writeln(form);
+		});
+		$("#form1").submit(function(){
+			option = document.getElementbyId("genre");
+			value = option.options[option.selectedIndex].value;
+			document.writeln("The value you chose was");
+// 			data.forEach(function(song) {
+// 			     if (song.genre == value){
+// 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
+// 			     }
+// 			})
 		});
 		
 </script>
