@@ -35,8 +35,8 @@
 			data.forEach(function(song) {
 			     if (song.genre == value){
 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
-			     }
-			}
+			     });
+			})
 		form = "<br>";
 		form +="<h2>Please pick your favorite genre with the following form</h2>";
 		form +="<form> <select id = 'genre' size = '1'> <option>Pop Music</option>";
