@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>JSON Demo</title>
+	<meta charset="utf-8"/>
+	<script>
+		function loadgame(){
+			request = new XMLHttpRequest();
+
+			request.open("GET", "https://www.cheapshark.com/api/1.0/deals", true);
+
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: when we get all the JSON data back, parse it and use it
+					console.log("5:  data is ready");
+					theData = request.responseText;
+					data = JSON.parse(theData);
+					returnHTML = "<tr><th>Game Name</th><th>Game Id</th>";
+					returnHTML +="<th>Normal Price</th><th>Sale Price</th>";
+					returnHTML +="<th>Steam Rating Text</th><th>Is on Sale?</th></tr>";
+					for (i = 0;i<30; i++){
+						returnHTML += "<tr>";
+						returnHTML += "<td>" + data[i]["title"] + "</td>";
+						returnHTML += "<td>" + data[i]["gameID"] + "</td>";
+						returnHTML += "<td>" + data[i]["normalPrice"] + "</td>";
+						returnHTML += "<td>" + data[i]["salePrice"] + "</td>";
+						returnHTML += "<td>" + data[i]["steamRatingText"] + "</td>";
+						returnHTML += "<td>" + (data[i]["isOnSale"] == "1" ? "yes" : "no") + "</td>";
+						returnHTML += "</tr>";
+					}
+					document.getElementById("messages").innerHTML ="data retrieval success";
+					document.getElementById("gamedata").innerHTML = returnHTML;
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+					document.getElementById("messages").innerHTML = "Whoops, something went terribly wrong!";
+				}
+				else if (request.readyState == 3) {
+					document.getElementById("messages").innerHTML = "Come back soon!";
+				}
+			}//end on readystate change
+			request.send();
+		}
+  </script>
+</head>
+<body onload="loadgame()">
+	<h1>JSON Data</h1>
+	<div id="messages">Loading...</div>
+	<div> The API I selected is called CheapShark API. It provides pricing comparison data for digital PC Games </div>
+	<div> I found this API at "https://www.cheapshark.com".</div>
+	<div> I used get option with API request and retrieved some information on various digital games listed on Steam.</div>
+	<div> These information are presented below in the table</div>
+	<div> I think one application where this API would be helpful is where the potential player trys to gain information on current game trends</div>
+	<div> The other application would be for game designers to compare current game market trends and get user data.</div>
+	<br><br><br>
+	<table id = "gamedata" border="0" cellpadding="10">
+	</table>
+</body>
+</html>
