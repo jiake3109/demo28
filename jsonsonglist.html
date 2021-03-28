@@ -39,11 +39,12 @@
 			e.preventDefault();
 			var option = document.getElementsByTagName("select");
 			var value = option[0].options[option[0].selectedIndex].value;
-			data.forEach(function(song) {
-			     if (song.genre == value){
-			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
-			     }
-			});
+			document.write("The value is" + value);
+// 			data.forEach(function(song) {
+// 			     if (song.genre == value){
+// 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
+// 			     }
+// 			});
 		});
 		});
 	});
