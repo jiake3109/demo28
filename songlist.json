@@ -31,15 +31,15 @@
   },
   {
     "title":"Just the way you are",
-    "author":"Harry Styles",
-    "genre":"Pop music",
-    "published_year":2019
-  },
-  {
-    "title":"Watermelon Sugar",
     "author":"Bruno Mars",
     "genre":"Pop music",
     "published_year":2010
+  },
+  {
+    "title":"Highway to hell",
+    "author":"AC/DC",
+    "genre":"Rock music",
+    "published_year":1979
   },
   {
     "title":"Someone you loved",
