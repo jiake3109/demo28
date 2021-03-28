@@ -41,12 +41,13 @@
 			var value = option[0].options[option[0].selectedIndex].value;
 			var title = document.getElementsByName("title");
 			var genre = document.getElementsByName("genre");
-			document.write("The value is" + value);
+			var return = "";
 			for (i = 0; i< 10; i++){
 			    if (genre[i].innerHTML == value){
-				document.getElementById("output").innerHTML += title[i].innerHTML +";&nbsp;&nbsp;";
+				return += title[i].innerHTML +";&nbsp;&nbsp;";
 			    }
 			}
+			document.writeln(return);
 		});
 		});
 	});
