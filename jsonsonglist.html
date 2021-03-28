@@ -35,14 +35,13 @@
 		form +="<option>Jazz</option><option>Rock Music</option></select><input type='submit'/></form><div id ='output'>&nbsp;</div>";
 		document.writeln(form);
 		$("form").submit(function(){
-// 			var option = document.getElementsByTagName("select");
-// 			var value = option[0].options[option[0].selectedIndex].value;
-			document.write("<div>The value you chose was</div>");
-// 			data.forEach(function(song) {
-// 			     if (song.genre == value){
-// 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
-// 			     }
-// 			})
+			var option = document.getElementsByTagName("select");
+			var value = option[0].options[option[0].selectedIndex].value;
+			data.forEach(function(song) {
+			     if (song.genre == value){
+			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
+			     }
+			});
 		});
 		});
 		
