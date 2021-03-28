@@ -38,7 +38,8 @@
 		$("form").submit(function(e){
 			e.preventDefault();
 			var option = document.getElementsByTagName("select");
-			var value = option[0].options[option[0].selectedIndex].value;
+			var value = "Genre: ";
+			value += option[0].options[option[0].selectedIndex].value;
 			var title = document.getElementsByName("title");
 			var genre = document.getElementsByName("genre");
 			var output = "";
