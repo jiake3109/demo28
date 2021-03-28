@@ -25,8 +25,8 @@
 			document.writeln(strHTML + "<br>"); 
 			strHTML="";
 			data.forEach(function(song) {
-					strHTML += song.title + "<br>Artist: "
-					+ song.author + "<br>Genre: " + song.genre + "<br>Released &nbsp;" +
+					strHTML += "<p>"+song.title + "</p>Artist: "
+					+ song.author + "<div>Genre: " + song.genre + "</div>Released &nbsp;" +
 					song.published_year + "<br><br>";
 			})
 			document.writeln(strHTML); 
