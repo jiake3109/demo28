@@ -39,12 +39,13 @@
 			e.preventDefault();
 			var option = document.getElementsByTagName("select");
 			var value = option[0].options[option[0].selectedIndex].value;
+			var title = document.getElementsByName("title");
+			var genre = document.getElementsByName("genre");
 			document.write("The value is" + value);
-// 			data.forEach(function(song) {
-// 			     if (song.genre == value){
-// 			     	document.getElementById("output").innerHTML += song.title +";&nbsp";
-// 			     }
-// 			});
+			for (i = 0; i< 10; i++){
+			    if (genre[i].innerHTML == value){
+				document.getElementById("output").innerHTML += title[i].innerHTML +";&nbsp;&nbsp;";
+			    }
 		});
 		});
 	});
