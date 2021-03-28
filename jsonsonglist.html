@@ -12,6 +12,7 @@
 
 <body>
 	<script language="javascript">
+	$(document).ready(function(){
 		$.getJSON("https://jiake3109.github.io/demo28/songlist.json", function(data){
 			strHTML="";
 			counter = 1;
@@ -34,7 +35,8 @@
 		form +="<form id = 'form1'> <select id = 'genre' size = '1'> <option>Pop Music</option>";
 		form +="<option>Jazz</option><option>Rock Music</option></select><input type='submit'/></form><div id ='output'>&nbsp;</div>";
 		document.writeln(form);
-		$("form").submit(function(){
+		$("form").submit(function(e){
+			e.preventDefault();
 			var option = document.getElementsByTagName("select");
 			var value = option[0].options[option[0].selectedIndex].value;
 			data.forEach(function(song) {
@@ -44,6 +46,7 @@
 			});
 		});
 		});
+	});
 		
 		
 </script>
